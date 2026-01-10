@@ -15,27 +15,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ Checkout repo
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
 
-      # 4️⃣ Build + export static site
-      - name: Build static site
-        run: npm run build
+      - run: npm run build
 
-      # 5️⃣ Upload /out folder as artifact for GitHub Pages
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
@@ -45,6 +35,4 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v4
