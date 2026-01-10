@@ -36,6 +36,24 @@ export default function HomePage() {
     );
   });
 
+  const filteredAndSorted = [...filtered].sort((a, b) => {
+  // Both have dates → newest first
+  if (a.lastDone && b.lastDone) {
+    const latestFirst = false;
+    if(latestFirst)
+    return b.lastDone.getTime() - a.lastDone.getTime();
+    else
+      return a.lastDone.getTime() - b.lastDone.getTime();
+  }
+
+  // Only one has a date → that one first
+  if (a.lastDone) return -1;
+  if (b.lastDone) return 1;
+
+  // Neither has a date → fallback to id
+  return a.id - b.id;
+});
+
   // Extract YouTube video ID (supports watch, shorts, youtu.be)
   const getYouTubeId = (url?: string): string | null => {
     if (!url) return null;
@@ -54,7 +72,6 @@ export default function HomePage() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Youth Activities</h1>
-
       
 
       {/* Filters */}
@@ -88,7 +105,7 @@ export default function HomePage() {
 
       {/* Activities Grid */}
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {filtered.map((a) => (
+        {filteredAndSorted.map((a) => (
           <ActivityCard
             key={a.id}
             activity={a}
