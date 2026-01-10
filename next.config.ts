@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/youth',  // ← ADD THIS!
   reactStrictMode: true,
   images: {
     unoptimized: true,
