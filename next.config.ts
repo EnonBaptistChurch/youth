@@ -1,9 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "export",   // static export
-  basePath: "",      // no extra prefix
-  assetPrefix: "",   // load assets from repo root
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',       // static export
+  reactStrictMode: true,  // optional, recommended
+  basePath: '',           // leave empty to avoid nested /out/youth
+  assetPrefix: '',        // load JS/CSS from root
 };
 
 export default nextConfig;

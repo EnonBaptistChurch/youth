@@ -16,24 +16,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1️⃣ Checkout repo
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       # 2️⃣ Setup Node.js
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       # 3️⃣ Install dependencies
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
       # 4️⃣ Build + export static site
-      - run: |
+      - name: Build and export
+        run: |
           npm run build
           npm run export
 
-      # 5️⃣ Deploy /out to GitHub Pages
-      - uses: peaceiris/actions-gh-pages@v5
+      # 5️⃣ Upload /out folder as artifact for GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
