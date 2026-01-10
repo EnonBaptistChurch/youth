@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',       // static export
-  basePath: '/youth',  // ← ADD THIS
-  reactStrictMode: true,  // optional, recommended
+  output: 'export',
+  reactStrictMode: true,
   images: {
     unoptimized: true,
   },
+  // Remove basePath - GitHub Pages handles this automatically
 };
 
 export default nextConfig;
