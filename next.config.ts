@@ -7,7 +7,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove basePath - GitHub Pages handles this automatically
 };
 
 export default nextConfig;
