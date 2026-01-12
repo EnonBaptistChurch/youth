@@ -79,5 +79,14 @@ export const activities: Activity[] = [
     setup:false,
     tags: ["outdoor"],
     time:"15-60",    
+  },
+  {
+    id:8,
+    name: "Pizza making",
+    type: "Game",
+    equipment: ["ingredients"],
+    setup:false,
+    tags: ["indoor"],
+    time:60,    
   }
 ];
