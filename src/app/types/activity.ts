@@ -2,6 +2,7 @@ export interface Activity {
   id: number;
   name: string;
   type: string;
+  description?: string;
   equipment: string[];
   time: number | string;
   setup: SetupLevel;
@@ -23,6 +24,7 @@ export class ActivityModel implements Activity {
   id: number;
   name: string;
   type: string;
+  description?: string | undefined;
   equipment: string[];
   time: number | string;
   setup: SetupLevel;
@@ -47,6 +49,7 @@ export class ActivityModel implements Activity {
     this.lastDone = data.lastDone;
     this.rounds = data.rounds ?? false;
     this.timePerRound = data.timePerRound;
+    this.description = data.description;
   }
 
   get isNoSetup() {

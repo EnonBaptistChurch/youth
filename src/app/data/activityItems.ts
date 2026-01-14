@@ -20,7 +20,7 @@ export const activities: Activity[] = [
   },
   {
     id: 3,
-    name: "Noughts &",
+    name: "Noughts & Crosses",
     type: "Game",
     equipment: ["batons", "cones"],
     time: 20,
