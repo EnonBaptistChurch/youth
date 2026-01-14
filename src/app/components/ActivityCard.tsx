@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { act } from "react";
 import { Activity, SetupLevel } from "../types/activity";
 
 interface ActivityCardProps {
@@ -66,9 +66,20 @@ export default function ActivityCard({
 
       {/* Activity details */}
       <div className="text-sm text-gray-600 mt-1">
-        Type: {activity.type} | Time: {activity.time} min |{" "}
-        {setupLabels[activity.setup]}
+        Type: {activity.type} | Time: {activity.time} min
+        {activity.rounds && activity.timePerRound ? ` (around ${activity.timePerRound} mins per round)` : ""} | {setupLabels[activity.setup]}
       </div>
+
+      
+
+      {/* Warnings */}
+      {activity.warning && activity.warning.length > 0 && (
+        <div className="text-sm text-red-600 mt-1">
+          ⚠ Warning: {activity.warning.join(", ")}
+        </div>
+      )}
+
+      {/* Equipment */}
       <div className="text-xs text-gray-500 mt-1">
         Equipment: {activity.equipment.join(", ")}
       </div>

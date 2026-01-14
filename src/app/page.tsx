@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Activity, SetupLevel } from "./types/activity";
-import { activities as allActivities } from "./data/activityItems";
+import React, { useState } from "react";
+import { Activity, SetupLevel } from "@/app/types/activity";
+import { activities as allActivities } from "@/app/data/activityItems";
 import Filters from "./components/Filters";
 import ActivityCard from "./components/ActivityCard";
 
@@ -10,7 +10,7 @@ export default function HomePage() {
   const [activities, setActivities] = useState<Activity[]>(allActivities);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [videoActivity, setVideoActivity] = useState<Activity | null>(null);
-  const [originalOrder] = useState<Activity[]>(allActivities); // preserve original order
+  const [originalOrder] = useState<Activity[]>(allActivities);
 
   // Filters state
   const [search, setSearch] = useState("");
@@ -18,45 +18,45 @@ export default function HomePage() {
   const [equipmentFilter, setEquipmentFilter] = useState<string[]>([]);
   const [setupFilter, setSetupFilter] = useState<SetupLevel[]>([]);
 
+  // Card click handler
   const handleCardClick = (activity: Activity) => {
     setSelectedId(activity.id);
     setVideoActivity(activity);
 
-    // Reorder: selected card at top, rest in original order
+    // Move selected to top
     const rest = originalOrder.filter((a) => a.id !== activity.id);
     setActivities([activity, ...rest]);
   };
 
   // Filtering logic
   const filtered = activities.filter((a) => {
-  return (
-    a.name.toLowerCase().includes(search.toLowerCase()) &&
-    (typeFilter.length === 0 || typeFilter.includes(a.type)) &&
-    (equipmentFilter.length === 0 ||
-      a.equipment.some((eq) => equipmentFilter.includes(eq))) &&
-    (setupFilter.length === 0 || setupFilter.includes(a.setup))
-  );
-});
+    return (
+      a.name.toLowerCase().includes(search.toLowerCase()) &&
+      (typeFilter.length === 0 || typeFilter.includes(a.type)) &&
+      (equipmentFilter.length === 0 ||
+        a.equipment.some((eq) => equipmentFilter.includes(eq))) &&
+      (setupFilter.length === 0 || setupFilter.includes(a.setup))
+    );
+  });
 
+  // Sorting: lastDone first
   const filteredAndSorted = [...filtered].sort((a, b) => {
-  // Both have dates → newest first
-  if (a.lastDone && b.lastDone) {
-    const latestFirst = false;
-    if(latestFirst)
-    return b.lastDone.getTime() - a.lastDone.getTime();
-    else
-      return a.lastDone.getTime() - b.lastDone.getTime();
-  }
+  // Selected card goes first
+  if (a.id === selectedId) return -1;
+  if (b.id === selectedId) return 1;
 
-  // Only one has a date → that one first
+  // Both have lastDone → newest first
+  if (a.lastDone && b.lastDone) return b.lastDone.getTime() - a.lastDone.getTime();
+
+  // Only one has lastDone → that one first
   if (a.lastDone) return -1;
   if (b.lastDone) return 1;
 
-  // Neither has a date → fallback to id
+  // Neither has lastDone → fallback to id
   return a.id - b.id;
 });
 
-  // Extract YouTube video ID (supports watch, shorts, youtu.be)
+  // Extract YouTube video ID
   const getYouTubeId = (url?: string): string | null => {
     if (!url) return null;
     const patterns = [
@@ -68,13 +68,11 @@ export default function HomePage() {
     }
     return null;
   };
-
   const videoId = getYouTubeId(videoActivity?.youtubeLink);
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Youth Activities</h1>
-      
 
       {/* Filters */}
       <Filters
@@ -89,7 +87,7 @@ export default function HomePage() {
         setSearch={setSearch}
       />
 
-      {/* Video Area */}
+      {/* Video */}
       {videoId && (
         <div className="mb-6">
           <iframe
@@ -105,7 +103,7 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Activities Grid */}
+      {/* Activities grid */}
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {filteredAndSorted.map((a) => (
           <ActivityCard

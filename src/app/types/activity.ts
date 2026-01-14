@@ -29,8 +29,8 @@ export class ActivityModel implements Activity {
   tags: string[];
   youtubeLink?: string;
   warning?: string[];
-  rounds?:boolean;
-  timePerRound?:number;
+  rounds?: boolean;
+  timePerRound?: number;
   lastDone?: Date;
 
   constructor(data: Partial<Activity> & Pick<Activity, "id" | "name" | "type">) {
@@ -45,8 +45,8 @@ export class ActivityModel implements Activity {
     this.youtubeLink = data.youtubeLink;
     this.warning = data.warning;
     this.lastDone = data.lastDone;
+    this.rounds = data.rounds ?? false;
     this.timePerRound = data.timePerRound;
-    this.rounds = data.rounds;
   }
 
   get isNoSetup() {
