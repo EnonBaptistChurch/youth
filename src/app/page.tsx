@@ -20,6 +20,10 @@ export default function HomePage() {
   const [tagFilter, setTagFilter] = useState<string[]>([]);
 
   const handleCardClick = (activity: Activity) => {
+    if(activity.id == selectedId) {
+      setSelectedId(null);
+      return;
+    }
     setSelectedId(activity.id);
     setVideoActivity(activity);
 
