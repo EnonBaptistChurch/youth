@@ -1,14 +1,13 @@
 "use client";
-import React, { act } from "react";
+import React from "react";
 import { Activity, SetupLevel } from "../types/activity";
 
 interface ActivityCardProps {
   activity: Activity;
   isSelected: boolean;
-  toggleSelect: () => void; // called by page
+  toggleSelect: () => void;
 }
 
-// Friendly labels for setup levels
 const setupLabels: Record<SetupLevel, string> = {
   [SetupLevel.Full]: "Requires Full Setup",
   [SetupLevel.Minimal]: "Minimal Setup",
@@ -27,19 +26,14 @@ export default function ActivityCard({
       onClick={toggleSelect}
     >
       <div className="flex items-center justify-between">
-        {/* Activity name */}
         <span className="font-semibold">{activity.name}</span>
 
-        {/* Right-side info */}
         <div className="flex items-center gap-2">
-          {/* Last done */}
           {activity.lastDone && (
             <span className="text-xs text-gray-500">
               Last done: {new Date(activity.lastDone).toLocaleDateString()}
             </span>
           )}
-
-          {/* YouTube icon */}
           {activity.youtubeLink && (
             <a
               href={activity.youtubeLink}
@@ -48,11 +42,7 @@ export default function ActivityCard({
               className="w-6 h-6"
               title="Watch on YouTube"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 64 64"
-                className="w-full h-full"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-full h-full">
                 <path
                   d="M62.603 16.596a8.06 8.06 0 0 0-5.669-5.669C51.964 9.57 31.96 9.57 31.96 9.57s-20.005.04-24.976 1.397a8.06 8.06 0 0 0-5.669 5.669C0 21.607 0 32 0 32s0 10.393 1.356 15.404a8.06 8.06 0 0 0 5.669 5.669C11.995 54.43 32 54.43 32 54.43s20.005 0 24.976-1.356a8.06 8.06 0 0 0 5.669-5.669C64 42.434 64 32 64 32s-.04-10.393-1.397-15.404z"
                   fill="red"
@@ -64,25 +54,24 @@ export default function ActivityCard({
         </div>
       </div>
 
-      {/* Activity details */}
       <div className="text-sm text-gray-600 mt-1">
         Type: {activity.type} | Time: {activity.time} min
-        {activity.rounds && activity.timePerRound ? ` (around ${activity.timePerRound} mins per round)` : ""} | {setupLabels[activity.setup]}
+        {activity.rounds && activity.timePerRound ? ` (${activity.timePerRound} mins per round)` : ""} |{" "}
+        {setupLabels[activity.setup]}
       </div>
 
-      
-
-      {/* Warnings */}
-      {activity.warning && activity.warning.length > 0 && (
-        <div className="text-sm text-red-600 mt-1">
-          ⚠ Warning: {activity.warning.join(", ")}
+      {activity.rounds && activity.timePerRound && (
+        <div className="text-sm text-gray-600 mt-1">
+          Rounds: Yes | Time per round: {activity.timePerRound} min
         </div>
       )}
 
-      {/* Equipment */}
-      <div className="text-xs text-gray-500 mt-1">
-        Equipment: {activity.equipment.join(", ")}
-      </div>
+      {activity.warning && activity.warning.length > 0 && (
+        <div className="text-sm text-red-600 mt-1">⚠ Warning: {activity.warning.join(", ")}</div>
+      )}
+
+      <div className="text-xs text-gray-500 mt-1">Equipment: {activity.equipment.join(", ")}</div>
+      <div className="text-xs text-gray-500 mt-1">Tags: {activity.tags.join(", ")}</div>
     </li>
   );
 }
