@@ -1,14 +1,16 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
+import { Activity, SetupLevel } from "../types/activity";
 
 type FiltersProps = {
-  activities: any[];
+  activities: Activity[];
   typeFilter: string[];
   setTypeFilter: (val: string[]) => void;
   equipmentFilter: string[];
   setEquipmentFilter: (val: string[]) => void;
-  setupFilter: string[];
-  setSetupFilter: (val: string[]) => void;
+  setupFilter: SetupLevel[];
+  setSetupFilter: (val: SetupLevel[]) => void;
   search: string;
   setSearch: (val: string) => void;
 };
@@ -24,16 +26,30 @@ export default function Filters({
   search,
   setSearch,
 }: FiltersProps) {
-    const filtersOpen = false;
+  const filtersOpen = false;
   const [typeOpen, setTypeOpen] = useState(filtersOpen);
   const [equipmentOpen, setEquipmentOpen] = useState(filtersOpen);
   const [setupOpen, setSetupOpen] = useState(filtersOpen);
 
-  const allEquipment = Array.from(new Set(activities.flatMap((a) => a.equipment)));
+  // Unique types & equipment
   const allTypes = Array.from(new Set(activities.map((a) => a.type)));
-  const setupOptions = ["true", "false"];
+  const allEquipment = Array.from(
+    new Set(activities.flatMap((a) => a.equipment))
+  );
 
-  const toggleFilter = (filter: string[], setFilter: any, value: string) => {
+  // Setup filter options with labels
+  const setupOptions: { level: SetupLevel; label: string }[] = [
+    { level: SetupLevel.Full, label: "Requires Full Setup" },
+    { level: SetupLevel.Minimal, label: "Minimal Setup" },
+    { level: SetupLevel.None, label: "No Setup" },
+  ];
+
+  // Generic toggle helper
+  const toggleFilter = <T extends string>(
+    filter: T[],
+    setFilter: (val: T[]) => void,
+    value: T
+  ) => {
     if (filter.includes(value)) {
       setFilter(filter.filter((v) => v !== value));
     } else {
@@ -93,7 +109,9 @@ export default function Filters({
                 <input
                   type="checkbox"
                   checked={equipmentFilter.includes(eq)}
-                  onChange={() => toggleFilter(equipmentFilter, setEquipmentFilter, eq)}
+                  onChange={() =>
+                    toggleFilter(equipmentFilter, setEquipmentFilter, eq)
+                  }
                 />
                 <span>{eq}</span>
               </label>
@@ -112,22 +130,18 @@ export default function Filters({
         </button>
         {setupOpen && (
           <div className="grid grid-cols-1 gap-1">
-            <label className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                checked={setupFilter.includes("true")}
-                onChange={() => toggleFilter(setupFilter, setSetupFilter, "true")}
-              />
-              <span>Requires Setup</span>
-            </label>
-            <label className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                checked={setupFilter.includes("false")}
-                onChange={() => toggleFilter(setupFilter, setSetupFilter, "false")}
-              />
-              <span>No Setup</span>
-            </label>
+            {setupOptions.map(({ level, label }) => (
+              <label key={level} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={setupFilter.includes(level)}
+                  onChange={() =>
+                    toggleFilter(setupFilter, setSetupFilter, level)
+                  }
+                />
+                <span>{label}</span>
+              </label>
+            ))}
           </div>
         )}
       </div>

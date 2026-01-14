@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Activity, activities as allActivities } from "./types/activity";
+import { Activity, SetupLevel } from "./types/activity";
+import { activities as allActivities } from "./data/activityItems";
 import Filters from "./components/Filters";
 import ActivityCard from "./components/ActivityCard";
 
@@ -15,7 +16,7 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
   const [equipmentFilter, setEquipmentFilter] = useState<string[]>([]);
-  const [setupFilter, setSetupFilter] = useState<string[]>([]);
+  const [setupFilter, setSetupFilter] = useState<SetupLevel[]>([]);
 
   const handleCardClick = (activity: Activity) => {
     setSelectedId(activity.id);
@@ -28,13 +29,14 @@ export default function HomePage() {
 
   // Filtering logic
   const filtered = activities.filter((a) => {
-    return (
-      a.name.toLowerCase().includes(search.toLowerCase()) &&
-      (typeFilter.length === 0 || typeFilter.includes(a.type)) &&
-      (equipmentFilter.length === 0 || a.equipment.some((eq) => equipmentFilter.includes(eq))) &&
-      (setupFilter.length === 0 || setupFilter.includes(a.setup ? "true" : "false"))
-    );
-  });
+  return (
+    a.name.toLowerCase().includes(search.toLowerCase()) &&
+    (typeFilter.length === 0 || typeFilter.includes(a.type)) &&
+    (equipmentFilter.length === 0 ||
+      a.equipment.some((eq) => equipmentFilter.includes(eq))) &&
+    (setupFilter.length === 0 || setupFilter.includes(a.setup))
+  );
+});
 
   const filteredAndSorted = [...filtered].sort((a, b) => {
   // Both have dates → newest first
