@@ -91,5 +91,100 @@ export const activities: Activity[] = [
     tags: ["calmer","short rounds", "individuals", "indoor"],
     type: "Game",
     youtubeLink: "https://www.youtube.com/shorts/keGfgrnGp70"
+  },
+  {
+    id: 10,
+    name: 'Cup Head Challenge',
+    description: 'Each player balances a cup on their head. The goal is to be the last person with their cup still on — you can knock others’ cups off by moving, bumping, or light contact, but you must keep yours balanced.',
+    rounds: false,
+    time: 5,
+    setup: SetupLevel.Minimal,
+    tags: ["party", "crowd", "simple", "indoor", "fast"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/BuPIxzAHbOE"
+  },
+  // {
+  //   id: 11,
+  //   name: 'Bring Me Closest Challenge',
+  //   description: 'Players race to collect an item from around the space — whoever brings back an amount closest to a target number wins!',
+  //   rounds: false,
+  //   time: 5,
+  //   setup: SetupLevel.Minimal,
+  //   tags: ["indoor","outdoor","short","fast","challenge"],
+  //   type: "Game",
+  //   youtubeLink: "https://www.youtube.com/shorts/oLV4CeJkQ8w"
+  // },
+  // {
+  //   id: 12,
+  //   name: 'Straw & Cup Balance Game',
+  //   description: 'Two players compete to balance cups using straws — whoever keeps theirs balanced the longest wins. Great as a quick party challenge!',
+  //   rounds: true,
+  //   timePerRound: 2,
+  //   time: 6,
+  //   setup: SetupLevel.Minimal,
+  //   tags: ["indoor","small group","short rounds","active","fun"],
+  //   type: "Game",
+  //   youtubeLink: "https://www.youtube.com/shorts/Wmd3GhCpdbY"
+  // },
+  {
+    id: 13,
+    name: 'Balloon Cup Stacking Challenge',
+    description: 'Players stack cups while keeping a balloon up — whoever completes their stack fastest or highest wins!',
+    rounds: false,
+    time: 4,
+    setup: SetupLevel.Minimal,
+    tags: ["indoor","party","simple","fast"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/oO6b7-UZzgw"
+  },
+  // {
+  //   id: 14,
+  //   name: 'Soda Can Tower Challenge',
+  //   description: 'Build the tallest tower of soda cans before time runs out — a fun quick‑build challenge for small groups.',
+  //   rounds: false,
+  //   time: 5,
+  //   setup: SetupLevel.Minimal,
+  //   tags: ["indoor","party","creative","fast"],
+  //   type: "Game",
+  //   youtubeLink: "https://www.youtube.com/shorts/6--jepo4JcU"
+  // }
+  {
+    id: 15,
+    name: 'Scatterball Game',
+    description: 'A fast-paced group game where players try to eliminate others by throwing soft balls. If you get hit, you’re out — last one standing wins.',
+    rounds: false,
+    time: 10,
+    setup: SetupLevel.Minimal,
+    tags: ["active","group","indoor","outdoor","fun"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/onwf8-wHb9c"
+  },
+  {
+    id: 16,
+    name: '1v1 Cup Race',
+    description: 'Two players race to transfer cones from one area to another, taking only one cone at a time. First to finish their stack wins. Competitive and fun! (Each must get their cones into a container.)', 
+    equipment:["cones", "bucket"],
+    rounds: true,
+    timePerRound: 3,
+    time: 6,
+    setup: SetupLevel.Minimal,
+    tags: ["challenge","fast","indoor","competitive","small group"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/wYarAcbVmQk"
+  },
+  {
+    id: 17,
+    name: 'Noodle Hockey',
+    description: 'Two teams use foam noodles as hockey sticks and a ball/puck to score goals in a quick, fun hockey-style challenge.',
+    equipment: ["foam noodles", "small ball"],
+    rounds: true,
+    timePerRound: 2,
+    time: 8,
+    setup: SetupLevel.Minimal,
+    tags: ["active","indoor","short rounds","fun","small group"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/Q3-Zj0pfFAo"
   }
+
+  
 ];
