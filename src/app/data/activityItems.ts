@@ -79,5 +79,17 @@ export const activities: Activity[] = [
     setup: SetupLevel.Full,
     tags: ["indoor"],
     time:60,    
+  },
+  {
+    id:9,
+    name: 'Dolphin Training Game',
+    description: '1 Person leaves the room while a random task is chosen. Everyone must get them to complete te task by only saying YES or NO.',
+    rounds: true,
+    timePerRound:3,
+    time: 10,
+    setup: SetupLevel.None,
+    tags: ["calmer","short rounds", "individuals", "indoor"],
+    type: "Game",
+    youtubeLink: "https://www.youtube.com/shorts/keGfgrnGp70"
   }
 ];
