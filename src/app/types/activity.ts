@@ -3,7 +3,7 @@ export interface Activity {
   name: string;
   type: string;
   description?: string;
-  equipment: string[];
+  equipment?: string[];
   time: number | string;
   setup: SetupLevel;
   tags: string[];
@@ -25,7 +25,7 @@ export class ActivityModel implements Activity {
   name: string;
   type: string;
   description?: string | undefined;
-  equipment: string[];
+  equipment?: string[];
   time: number | string;
   setup: SetupLevel;
   tags: string[];
