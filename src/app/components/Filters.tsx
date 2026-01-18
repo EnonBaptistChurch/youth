@@ -34,7 +34,8 @@ export default function Filters({
   const [setupOpen, setSetupOpen] = useState(false);
   const [tagsOpen, setTagsOpen] = useState(false);
 
-  const allEquipment = Array.from(new Set(activities.flatMap((a) => a.equipment)));
+  const allEquipment = Array.from(new Set(activities.flatMap((a) => a.equipment ?? []))
+);
   const allTypes = Array.from(new Set(activities.map((a) => a.type)));
   const setupOptions = [SetupLevel.None, SetupLevel.Minimal, SetupLevel.Full];
   const allTags = Array.from(new Set(activities.flatMap((a) => a.tags)));
@@ -85,6 +86,7 @@ export default function Filters({
         {equipmentOpen && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
             {allEquipment.map((eq) => (
+              
               <label key={eq} className="flex items-center space-x-2">
                 <input type="checkbox" checked={equipmentFilter.includes(eq)} onChange={() => toggleFilter(equipmentFilter, setEquipmentFilter, eq)} />
                 <span>{eq}</span>
