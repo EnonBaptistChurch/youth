@@ -35,7 +35,7 @@ export default function HomePage() {
     return (
       a.name.toLowerCase().includes(search.toLowerCase()) &&
       (typeFilter.length === 0 || typeFilter.includes(a.type)) &&
-      (equipmentFilter.length === 0 || a.equipment.some((eq) => equipmentFilter.includes(eq))) &&
+      (equipmentFilter.length === 0 || (a.equipment && a.equipment.some((eq) => equipmentFilter.includes(eq)))) &&
       (setupFilter.length === 0 || setupFilter.includes(a.setup)) &&
       (tagFilter.length === 0 || a.tags.some((tag) => tagFilter.includes(tag)))
     );
