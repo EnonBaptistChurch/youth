@@ -184,7 +184,29 @@ export const activities: Activity[] = [
     tags: ["active","indoor","short rounds","fun","small group"],
     type: "Game",
     youtubeLink: "https://www.youtube.com/shorts/Q3-Zj0pfFAo"
-  }
+  },
+  // {
+  //   id: 18,
+  //   name: 'Benchball Short',
+  //   description: 'A quick clip showing how to play Benchball — a team game where players pass the ball to teammates on a bench and try to get everyone on the opposing bench. Great for group play and teamwork in PE settings.',  
+  //   rounds: false,
+  //   time: 10,
+  //   setup: SetupLevel.Minimal,
+  //   tags: ["team","active","indoor","outdoor","group"],
+  //   type: "Game",
+  //   youtubeLink: "https://www.youtube.com/shorts/uSNRoZ_2kIA" // Benchball demo #shorts :contentReference[oaicite:0]{index=0}
+  // },
+  {
+    id: 19,
+    name: 'Empires (Identity Guessing Game)',
+    description: 'Each player secretly chooses a character or role. Players take turns asking questions or guessing others’ identities. Answers can be limited to YES/NO. The goal is to discover everyone’s identity before the game ends.',
+    rounds: true,
+    timePerRound: 2,
+    time: 15,
+    setup: SetupLevel.Minimal,
+    tags: ["indoor","small group","calmer","guessing","fun"],
+    type: "Game"
+}
 
   
 ];
