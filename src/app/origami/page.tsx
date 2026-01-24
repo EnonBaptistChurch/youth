@@ -14,7 +14,7 @@ export default function Page() {
 
   const images = files.map((f) => `/origami/images/${f}`);
 
-  const linkHref = basePath || '/'; // fallback to root in dev
+  const linkHref = basePath || '/'; 
   
   return (
     <main style={{ maxWidth: 800, margin: "0 auto", padding: 16 }}>
