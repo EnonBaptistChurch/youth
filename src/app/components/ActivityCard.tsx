@@ -74,6 +74,13 @@ export default function ActivityCard({activity, isSelected, toggleSelect,}: Acti
             Equipment: {activity.equipment.join(", ")}
           </div>
       )}
+      {activity.internalLink && (
+        <div className="text-md text-blue-600 mt-1">
+          <a href={activity.internalLink} target="_blank" rel="noopener noreferrer">
+            {activity.name} Details Page
+          </a>
+        </div>
+      )}
     </li>
   );
 }
