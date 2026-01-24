@@ -1,6 +1,7 @@
 "use client";
 import { Activity, SetupLevel } from "../types/activity";
 import YoutubeIcon from "../icons/youtube";
+import { basePath } from "../../../modules/config";
 
 interface ActivityCardProps {
   activity: Activity;
@@ -76,7 +77,7 @@ export default function ActivityCard({activity, isSelected, toggleSelect,}: Acti
       )}
       {activity.internalLink && (
         <div className="text-md text-blue-600 mt-1">
-          <a href={activity.internalLink} target="_blank" rel="noopener noreferrer">
+          <a href={basePath + activity.internalLink} target="_blank" rel="noopener noreferrer">
             {activity.name} Details Page
           </a>
         </div>

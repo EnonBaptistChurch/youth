@@ -12,7 +12,7 @@ export default function Page() {
     .filter((f) => f.endsWith(".png"))
     .sort(); // sort alphabetically
 
-  const images = files.map((f) => `/origami/images/${f}`);
+  const images = files.map((f) => basePath + `/origami/images/${f}`);
 
   const linkHref = basePath || '/'; 
   
