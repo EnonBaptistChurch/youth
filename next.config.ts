@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/youth' : '';
+import { basePath } from './modules/config';
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? '/youth' : '',
+  basePath: basePath,
   reactStrictMode: true,
   images: {
     unoptimized: true,
