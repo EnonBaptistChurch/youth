@@ -17,7 +17,7 @@ export default function Carousel({
   const [selected, setSelected] = useState(0);
 
   if (!images || images.length === 0) return <p>No images found.</p>;
-    const scale = 0.9;
+    const scale = 0.85;
   return (
     <div>
       {/* Large selected image */}
