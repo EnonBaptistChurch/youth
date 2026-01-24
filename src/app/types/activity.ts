@@ -12,6 +12,7 @@ export interface Activity {
   rounds?:boolean;
   timePerRound?:number;
   lastDone?: Date;
+  internalLink?: string;
 }
 
 export enum SetupLevel {
@@ -34,6 +35,7 @@ export class ActivityModel implements Activity {
   rounds?: boolean;
   timePerRound?: number;
   lastDone?: Date;
+  internalLink?: string;
 
   constructor(data: Partial<Activity> & Pick<Activity, "id" | "name" | "type">) {
     this.id = data.id;
@@ -50,6 +52,7 @@ export class ActivityModel implements Activity {
     this.rounds = data.rounds ?? false;
     this.timePerRound = data.timePerRound;
     this.description = data.description;
+    this.internalLink = data.internalLink;
   }
 
   get isNoSetup() {
