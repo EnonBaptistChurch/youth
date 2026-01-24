@@ -208,6 +208,18 @@ export const activities: Activity[] = [
     setup: SetupLevel.Minimal,
     tags: ["indoor","small group","calmer","guessing","fun"],
     type: "Game"
+},
+{
+    id: 20,
+    name: 'Origami',
+    description: 'Learn and practice the art of origami by folding paper into various shapes and figures. Suitable for all skill levels, from beginners to advanced folders.',
+    rounds: false,
+    time: 30,
+    setup: SetupLevel.None,
+    tags: ["indoor","calmer","creative","individual"],
+    type: "Craft",
+    internalLink: "/origami",
+    lastDone: new Date("2026-01-23")
 }
 
   
