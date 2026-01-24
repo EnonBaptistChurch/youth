@@ -16,6 +16,7 @@ const setupLabels: Record<SetupLevel, string> = {
 };
 
 export default function ActivityCard({activity, isSelected, toggleSelect,}: ActivityCardProps) {
+  console.log(basePath);
   return (
     <li className={`group border rounded-lg p-4 cursor-pointer transition
         ${
