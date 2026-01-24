@@ -5,9 +5,10 @@ export const activities: Activity[] = [
     name: "Dodgeball",
     type: "Game",
     equipment: ["balls", "cones", "chairs"],
-    time: 10,
+    time: "10-15",
     setup: SetupLevel.Minimal,
     tags: ["indoor", "large group", "active"],
+    lastDone: new Date("2026-01-23")
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const activities: Activity[] = [
     time: 20,
     setup: SetupLevel.Minimal,
     tags: ["outdoor", "medium group", "active"],
+    lastDone: new Date("2026-01-23")
   },
   {
     id: 4,
