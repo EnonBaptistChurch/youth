@@ -11,7 +11,7 @@ export default function Page() {
   const files = fs.readdirSync(imagesDir)
     .filter((f) => f.endsWith(".png"))
     .sort(); // sort alphabetically
-
+  console.log("origami basePath:", basePath);
   const images = files.map((f) => basePath + `/origami/images/${f}`);
 
   const linkHref = basePath || '/'; 
