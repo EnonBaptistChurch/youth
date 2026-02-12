@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Activity, SetupLevel } from "@/app/types/activity";
 import { activities as allActivities } from "@/app/data/activityItems";
 import Filters from "./components/Filters";
@@ -62,6 +62,7 @@ export default function HomePage() {
   };
 
   const videoId = getYouTubeId(videoActivity?.youtubeLink);
+  const currentDescription = videoActivity?.description;
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -88,14 +89,21 @@ export default function HomePage() {
             height="360"
             src={`https://www.youtube.com/embed/${videoId}`}
             title={videoActivity?.name}
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="rounded-lg"
           />
         </div>
       )}
-
+      {currentDescription && (
+        <div className="mb-6">
+          <div className="mt-6 bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-xl">
+            <p className="text-xs md:text-xl font-medium leading-relaxed">
+              {currentDescription}
+            </p>
+          </div>
+        </div>
+      )}
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {filteredAndSorted.map((a) => (
           <ActivityCard key={a.id} activity={a} isSelected={a.id === selectedId} toggleSelect={() => handleCardClick(a)} />
