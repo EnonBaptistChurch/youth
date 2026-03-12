@@ -18,6 +18,7 @@ export const activities: Activity[] = [
     time: 60,
     setup: SetupLevel.Full,
     tags: ["kitchen", "small group"],
+    lastDone: new Date("2026-02-28")
   },
   {
     id: 3,
