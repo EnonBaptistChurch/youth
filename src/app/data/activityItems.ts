@@ -261,6 +261,39 @@ export const activities: Activity[] = [
     type: "Game",
     lastDone: new Date("2026-02-06")
 },
+{
+  id: 24,
+    name: 'Ba dum Game',
+    rounds: true,
+    timePerRound:2,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "out", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/SL0Qjfi8SpE?si=2tkeR7MCBtOhsnwh"
+},
+{
+  id: 25,
+    name: 'Snap, Clap, Stomp Game',
+    rounds: true,
+    timePerRound:2,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/CH9jC1cHjGc?si=mWI8H7epVmqOkqRZ"
+},
+{
+  id: 26,
+    name: 'Walk & Stop Game',
+    rounds: true,
+    timePerRound: 1,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/JmcmffiXgFY?si=CMcyH44-j8xOd5Ok"
+},
 
   
 ];
