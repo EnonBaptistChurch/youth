@@ -18,6 +18,7 @@ export const activities: Activity[] = [
     time: 60,
     setup: SetupLevel.Full,
     tags: ["kitchen", "small group"],
+    lastDone: new Date("2026-02-28")
   },
   {
     id: 3,
@@ -220,7 +221,80 @@ export const activities: Activity[] = [
     type: "Craft",
     internalLink: "/origami",
     lastDone: new Date("2026-01-23")
-}
+},
+{
+  id: 21,
+    name: 'Moving place - Categories',
+    description: 'Have 1 less chair than everyone there. They stand in the middle and declare a category that is true for them and all the seated it applies to also get up from their chair and the person in the middle must try to sit down, whilst those it applies to switch places. ',
+    rounds: true,
+    timePerRound:1,
+    time: 10,
+    setup: SetupLevel.None,
+    tags: ["indoor","calmer","individual", "not-out"],
+    equipment: ["chairs"],
+    type: "Game",
+    lastDone: new Date("2026-02-06"),
+    internalLink:"/forfeits"
+
+},
+{
+  id: 22,
+    name: 'Moving place - Blindfold',
+    description: 'Have 1 less chair than everyone there. They stand in the middle blindfolded. People are then picked to switch places and try to switch places with another person selected, whilst the blindfolded person, tries to get them blindfolded.',
+    rounds: true,
+    timePerRound:1,
+    time: 10,
+    setup: SetupLevel.None,
+    tags: ["indoor","calmer","creative","individual", "not-out"],
+    equipment: ["chairs","blindfold"],
+    type: "Game"
+},
+{
+  id: 23,
+    name: 'Cone Game',
+    description: 'Pair them up. Then they are to stand across from each other with a cone between them. Then a leader calls out random instructions for them to touch or try to touch, then when cone is said, they are to try to grab the cone that is front of them. Person who gets the cone goes through to next round. ',
+    rounds: true,
+    timePerRound:1,
+    time: 10,
+    setup: SetupLevel.None,
+    tags: ["indoor","active","individual", "out"],
+    equipment: ["cones"],
+    type: "Game",
+    lastDone: new Date("2026-02-06")
+},
+{
+  id: 24,
+    name: 'Ba dum Game',
+    rounds: true,
+    timePerRound:2,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "out", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/SL0Qjfi8SpE?si=2tkeR7MCBtOhsnwh"
+},
+{
+  id: 25,
+    name: 'Snap, Clap, Stomp Game',
+    rounds: true,
+    timePerRound:2,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/CH9jC1cHjGc?si=mWI8H7epVmqOkqRZ"
+},
+{
+  id: 26,
+    name: 'Walk & Stop Game',
+    rounds: true,
+    timePerRound: 1,
+    time: 5,
+    setup: SetupLevel.None,
+    tags: ["individual", "group"],
+    type: "Game",
+    youtubeLink: "https://youtu.be/JmcmffiXgFY?si=CMcyH44-j8xOd5Ok"
+},
 
   
 ];
