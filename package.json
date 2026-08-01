@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "next": "16.2.6",
-    "node-poppler": "^9.1.2",
+    "node-poppler": "^10.0.1",
     "react": "19.2.5",
     "react-dom": "19.2.5"
   },
