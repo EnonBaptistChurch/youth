@@ -234,7 +234,7 @@ export const activities: Activity[] = [
     tags: ["indoor","calmer","individual", "not-out"],
     equipment: ["chairs"],
     type: "Game",
-    lastDone: new Date("2026-02-06"),
+    lastDone: new Date("2026-10-02"),
     internalLink:"/forfeits"
 
 },
