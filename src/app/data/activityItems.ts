@@ -63,7 +63,7 @@ export const activities: Activity[] = [
     setup: SetupLevel.Minimal,
     tags: ["indoor", "small group", "individuals", "short rounds"],
     warning: ["potential violence"],
-    lastDone: new Date("2026-01-09")
+    lastDone: new Date("2026-10-09")
   },
   {
     id:7,
@@ -82,6 +82,7 @@ export const activities: Activity[] = [
     setup: SetupLevel.Full,
     tags: ["indoor"],
     time:60,    
+    lastDone: new Date("2026-10-23")
   },
   {
     id:9,
@@ -260,7 +261,7 @@ export const activities: Activity[] = [
     tags: ["indoor","active","individual", "out"],
     equipment: ["cones"],
     type: "Game",
-    lastDone: new Date("2026-02-06")
+    lastDone: new Date("2026-10-02")
 },
 {
   id: 24,
