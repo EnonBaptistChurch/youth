@@ -296,6 +296,41 @@ export const activities: Activity[] = [
     type: "Game",
     youtubeLink: "https://youtu.be/JmcmffiXgFY?si=CMcyH44-j8xOd5Ok"
 },
+{
+  id: 27,
+  name: 'No Prep Clapping Game',
+  description: '',
+  rounds: true,
+  timePerRound: 2,
+  time: 10,
+  setup: SetupLevel.None,
+  tags: ["indoor", "group", "circle"],
+  type: "Game",
+  youtubeLink: "https://youtube.com/shorts/3wRit5hd4JQ"
+},
+{
+  id: 28,
+  name: 'In Out Circle Game',
+  description: '',
+  rounds: true,
+  timePerRound: 2,
+  time: 10,
+  setup: SetupLevel.Minimal,
+  tags: ["indoor", "group"],
+  type: "Game",
+  youtubeLink: "https://youtube.com/shorts/tfiuGqxE4L0"
+},
+{
+  id:29,
+  name: 'Blindfold Ping Pong Catch',
+  rounds: true,
+  timePerRound: 0.5,
+  setup: SetupLevel.Minimal,
+  type: "Game",
+  time: 2,
+  tags: ["indoor", "rounds"],
+  youtubeLink: 'https://www.youtube.com/shorts/JfOnIy26W2Q'
+}
 
   
 ];
