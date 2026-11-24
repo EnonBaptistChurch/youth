@@ -306,7 +306,8 @@ export const activities: Activity[] = [
   setup: SetupLevel.None,
   tags: ["indoor", "group", "circle"],
   type: "Game",
-  youtubeLink: "https://youtube.com/shorts/3wRit5hd4JQ"
+  youtubeLink: "https://youtube.com/shorts/3wRit5hd4JQ",
+  lastDone: new Date("2026-11-20")
 },
 {
   id: 28,
@@ -329,8 +330,19 @@ export const activities: Activity[] = [
   type: "Game",
   time: 2,
   tags: ["indoor", "rounds"],
-  youtubeLink: 'https://www.youtube.com/shorts/JfOnIy26W2Q'
-}
+  youtubeLink: 'https://www.youtube.com/shorts/JfOnIy26W2Q',
+  lastDone: new Date("2026-11-20")
+},
+{
+  id:30,
+  name: 'Knot Game',
+  setup: SetupLevel.None,
+  type: "Game",
+  time: 15,
+  tags: ["indoor", "group", "co-operation", "teamwork"],
+  lastDone: new Date("2026-11-20")
+},
+
 
   
 ];
